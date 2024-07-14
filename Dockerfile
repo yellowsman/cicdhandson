@@ -6,6 +6,6 @@ RUN go mod download
 COPY *.go ./
 RUN CGO_EBABLE=0 GOOS=linux go build -o cicdhandson
 
-FROM scrach
+FROM scratch
 COPY --from=builder /app/cicdhandson /app
 ENTRYPOINT ["/app"]
